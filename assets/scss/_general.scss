@@ -1,0 +1,234 @@
+.page-title {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 56px;
+    line-height: 1.2;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        font-size: 28px;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        font-size: 25px;
+    }
+
+    @media screen and(max-width: $xs-breakpoint) {
+        font-size: 22px;
+    }
+}
+
+.block-subtitle {
+    font-size: 20px;
+    line-height: 1.6;
+
+    &--white {
+        color: #fff;
+    }
+
+    &--gray {
+        color: $main-gray;
+    }
+
+    @media screen and(max-width: $lg-breakpoint) {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        font-size: 17px;
+    }
+
+    @media screen and(max-width: $xs-breakpoint) {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+}
+
+// h2 title
+
+.block-title {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    line-height: 1.2;
+    
+    &--black {
+        color: $main-black;
+    }
+
+    &--white {
+        color: #fff;
+    }
+
+    &--orange{
+        color: $main-orange;
+    }
+
+    @media screen and(max-width: $lg-breakpoint) {
+        font-size: 25px;
+        line-height: 1.2;
+    }
+
+    @media screen and(max-width: $xs-breakpoint) {
+        font-size: 23px;
+    }
+}
+
+.block-subtitle-h3 {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: $main-black;
+    font-size: 25px;
+    line-height: 1.4;
+
+    &--white {
+        color: #fff;
+    }
+
+    &--black {
+        color: $main-black;
+    }
+
+    @media screen and(max-width: $lg-breakpoint) {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+}
+
+.block-text {
+    color: $main-gray;
+    font-size: 14px;
+    line-height: 1.7;
+
+    &--white {
+        color: #fff;
+    }
+
+    @media screen and(max-width: $lg-breakpoint) {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        font-size: 14px;
+    }
+}
+
+// Call to action button
+
+.call-action,
+.call-action-modal {
+    font-size: 15px;
+    padding: 14px 10px;
+    min-width: 176px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    border-radius: 7px;
+    line-height: 23px;
+    transition: all .3s;
+    color: $main-black;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        min-width: 150px;
+    }
+}
+
+.call-action-first-view {
+    background-color: $main-orange;
+    border: 2px solid $main-orange;
+
+    &:hover {
+        background-color: #fff;
+        border-color: transparent;
+    }
+}
+
+.call-action-second-view {
+    background-color: #fff;
+    border: 2px solid #fff;
+   
+    &:hover {
+        background-color: $main-orange;
+        border-color: $main-orange;
+    }
+}
+
+
+// Button
+
+.btn {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 14px 10px;
+    min-width: 176px;
+    line-height: 23px;
+    border-radius: 7px;
+    transition: all .3s;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        min-width: 150px;
+    }
+}
+
+.btn-first-view {
+    color: #ffffff;
+    background-color: $main-black;
+    border: 2px solid $main-black;
+
+    &:hover {
+        color: $main-black;
+        background-color: #ffffff;
+        border-color: $main-black;
+    }
+}
+
+// Social 
+
+.social-first-view {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $main-black;
+    border-radius: 50px;
+    transition: background-color .4s;
+
+    &:before {
+        font-size: 13px;
+        transition: color .4s;
+    }
+
+    &:hover {
+       background-color: #b4aeae;
+    }
+    &:hover:before {
+        color: #fff;
+     }
+}
+
+.social-second-view {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $main-orange;
+    border-radius: 50px;
+    
+    &:before {
+        font-size: 16px;
+        transition: color .4s;
+    }
+
+    &:hover:before {
+        color: #fff;
+    }
+}

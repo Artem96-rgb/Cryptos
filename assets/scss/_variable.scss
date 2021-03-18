@@ -1,0 +1,20 @@
+
+$main-black: #171717;
+$main-orange: #ffdc24;
+$main-gray: #515050;
+
+
+
+$lg-breakpoint: 991px;
+$sm-breakpoint: 767px;
+$xs-breakpoint: 575px;
+
+@mixin negative-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+@mixin positive-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+}

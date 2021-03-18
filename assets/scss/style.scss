@@ -1,0 +1,1846 @@
+@import "variable";
+@import "reset";
+@import "general";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Open+Sans:wght@400;700&family=Quicksand:wght@500&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+    &.body-hidden {
+        overflow: hidden;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+// Header 
+
+.header {
+    padding: 25px 0;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-direction: column;
+        }
+    }
+}
+
+// Logo 
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    @media screen and(max-width: $sm-breakpoint) {
+        margin-bottom: 30px;
+        align-self: flex-start;
+    }
+
+    &__text {
+        font-family: 'Montserrat', sans-serif;
+        color: $main-black;
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 33px;
+
+        &--white {
+            color: #fff;
+        }
+
+        @media screen and(max-width: $lg-breakpoint) {
+            & {
+                font-size: 25px;
+            }
+        }
+    }
+}
+
+// Nav 
+
+.nav {
+
+    @media screen and(max-width: $sm-breakpoint) {
+        & {
+           display: none;
+           position: absolute;
+           max-width: 550px;
+           width: 100%;
+           bottom: -103px;
+           z-index: 1;
+           background-color: #fff;
+           border: 2px solid $main-orange;
+           border-bottom: 0;
+        }
+    }
+
+    @media screen and(max-width: $xs-breakpoint) {
+        & {
+           max-width: 275px;
+        }
+    }
+
+    &-active {
+        display: block;
+    }
+}
+
+// Menu 
+
+.menu {
+    display: flex;
+
+    @media screen and(max-width: $sm-breakpoint) {
+        & {
+           flex-direction: column;
+           padding: 10px 0 10px 20px;
+        }
+    }
+
+    &__item {
+        margin-right: 72px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            & {
+                margin-right: 30px;
+            }
+
+            @media screen and(max-width: $sm-breakpoint) {
+                &:not(:last-child) {
+                    margin: 0 0 15px 0;
+                }
+            }
+        }
+    }
+
+    &__link {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        color: $main-black;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $main-black;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            & {
+               font-size: 14px;
+               line-height: 1.2;
+
+            }
+        }
+    }
+
+    &__item-sub-menu {
+        position: relative;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-right: 0;  
+        }
+
+        &:hover .sub-menu {
+            opacity: 1;
+        }
+
+        &:hover .sub-menu::before {
+            display: block;
+        }
+    }
+}
+
+// Sub Menu 
+
+.sub-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    min-width: 170px;
+    left: 0;
+    padding: 15px 0;
+    background-color: #6c6a6a;
+    border-radius: 7px;
+    padding: 15px 10px 15px 20px;
+    opacity: 0;
+
+    @media screen and(max-width: $sm-breakpoint) {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 0;
+        border: 2px solid $main-orange;
+        border-top-width: 0;
+        padding-right: 0;
+        left: 2px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -12px;
+        height: 12px;
+        left: 0;
+        width: 100%;
+        display: none;
+    }
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__link {
+        font-size: 12px;
+        line-height: 16px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 500;
+        color: #fff;
+        transition: color .3s;
+
+        &:hover {
+            color: $main-orange;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            color: $main-black;
+            font-size: 14px;
+        }
+    }
+}
+
+// Burger
+
+.burger {
+    display: none;
+
+    @media screen and(max-width: $sm-breakpoint) {
+        & {
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           width: 40px;
+           height: 40px;
+           background-color: $main-black;
+           margin-bottom: 30px;
+           z-index: 2;
+
+           &__item {
+               display: inline-block;
+               width: 20px;
+               height: 2px;
+               background-color: $main-orange;
+               
+               &:not(:last-child) {
+                   margin-bottom: 5px;
+               }
+           }
+        }
+    }
+}
+
+
+// Header Social 
+                                                              
+.header__social {
+    display: flex;
+    align-items: center;
+
+    &-item {
+        &:not(:last-child) {
+            margin-right: 12px;
+        }
+    }
+}
+
+// Intro
+
+.intro {
+    padding: 230px 0;
+    background: url("../img/intro/intro-bg.jpg") no-repeat center;
+    background-size: cover;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 145px 0;
+    }
+
+    &__content {
+        max-width: 615px;
+        width: 100%;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            max-width: 385px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            max-width: 530px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 20px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+
+        @media screen and(max-width: $xs-breakpoint) {
+            margin-bottom: 20px;
+        }
+        
+    }
+
+    &__subtitle {
+        margin-bottom: 50px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+// Price
+
+.price {
+    padding: 130px 0 100px 0;
+    background: url("../img/price/price-bg.png") no-repeat bottom / cover fixed;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0 35px 0;
+        background-attachment: scroll;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0 25px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__column {
+        flex-basis: 25%;
+        @include positive-padding;
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            & {
+                margin-bottom: 25px ;
+            }
+        }
+    }
+
+    &__column-top {
+        padding: 15px;
+        background-color: $main-orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &--bg-orange {
+            background-color: $main-orange;
+        }
+
+        &--bg-black {
+            background-color: $main-black;
+        }
+    }
+
+    &__column-top-title {
+        text-transform: uppercase;
+
+        &--color-white {
+           color: #fff;
+        }
+
+        &--color-black {
+            color: $main-black;
+        }
+
+    }
+
+    &__column-top-subtitle {
+        font-size: 16px;
+        line-height: 1.6;
+
+        &--color-white {
+           color: #fff;
+        }
+        
+        &--color-black {
+            color: $main-black;
+        }
+
+        @media screen and(max-width: $lg-breakpoint) {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+    }
+
+    &__column-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 15px;
+        background-color: #fff;
+        transition: background-color .4s;
+        border: 2px solid;
+
+        &:hover {
+            background-color: #fafafa;
+        }
+
+        &--border-orange {
+            border-color: $main-orange;
+        }
+
+        &--border-black {
+            border-color: $main-black;
+        }
+    }
+
+    &__column-bottom-item {
+        flex-basis: 33.333333%;
+        text-align: center;
+    }
+
+    &__column-bottom-title {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__column-bottom-subtitle {
+        font-weight: 400;
+    }
+
+    &__column-bottom-title,
+    &__column-bottom-subtitle {
+        color: #515050;
+        font-size: 14px;
+        line-height: 1.5;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            font-size: 10px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            font-size: 14px;
+        }
+    }
+}
+
+// Chart
+
+.chart {
+    padding: 130px 0;
+    background: url("../img/chart/chart-bg.png") no-repeat bottom $main-black;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0;
+    }
+
+    &__top {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &__bottom {
+        max-width: 770px;
+        width: 100%;
+        margin: 0 auto;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            max-width: 485px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            max-width: initial;
+        }
+    }
+}
+
+.tradingview-widget {
+    width: 100%;
+}
+
+// Steps
+
+.steps {
+    padding:  130px 0 100px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding:  65px 0 35px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding:  45px 0 20px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include negative-margin;
+    }
+
+    &__column {
+        flex-basis: 33.3333333%;
+        @include positive-padding;
+        text-align: center;
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+            margin-bottom: 25px;
+        }
+    }
+
+    &__column-img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 30px auto;
+    }
+
+    &__column-title {
+        margin-bottom: 23px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 19px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 21px;
+        }
+    }
+
+}
+
+// Bitcoin
+
+.bitcoin {
+    padding: 130px 0;
+    background: url("../img/bitcoin/bitcoin-bg.jpg") no-repeat top / cover fixed;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0;
+        background-attachment: scroll;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0;
+    }
+
+
+    &__content {
+        max-width: 570px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            max-width: 370px;
+        }
+
+        @media screen and(max-width: $lg-breakpoint) {
+            max-width: initial;
+        }
+    }
+
+    &__title {
+        margin-bottom: 32px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 22px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+
+        @media screen and(max-width: $xs-breakpoint) {
+            margin-bottom: 21px;
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 55px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+
+// Feedback
+
+.feedback {
+    padding: 130px 0 100px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0 35px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0 25px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include negative-margin;
+    }
+
+    &__column {
+        flex-basis: 50%;
+        @include positive-padding;
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+            margin-bottom: 25px;
+        }
+    }
+
+    &__column-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-left: 30px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            padding-left: 0;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            padding-left: 30px;
+        }
+
+        @media screen and(max-width: $xs-breakpoint) {
+            padding-left: 0;
+        }
+    }
+
+    &__column-img {
+        flex: 0 0 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20px;
+
+        img {
+           max-width: 100%;
+        }
+    }
+
+    &__column-content {
+        flex-basis: 370px;
+    }
+
+    &__column-quote {
+        color: $main-orange;
+        font-size: 23px;
+        margin-bottom: 5px;
+    }
+
+    &__column-title {
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: $main-black;
+        font-size: 18px;
+        line-height: 1.8;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    }
+}
+
+// Featured
+
+.featured {
+    padding: 145px 0;
+    background: url("../img/featured/featured-bg.png") no-repeat top / cover fixed $main-orange;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 80px 0;
+        background-attachment: scroll;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 60px 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        @include negative-margin;
+    }
+
+    &__column {
+        flex-basis: 50%;
+        @include positive-padding;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__column-img {
+
+        text-align: center;
+        
+        img {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    }
+
+    &__column-title,
+    &__column-subtitle {
+        margin-bottom: 32px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 22px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+
+        @media screen and(max-width: $xs-breakpoint) {
+            margin-bottom: 21px;
+        }
+    }
+
+    &__column-price {
+        margin-bottom: 30px;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: $main-black;
+        font-size: 36px;
+        line-height: 1.3;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            font-size: 25px;   
+        }
+
+        @media screen and(max-width: $xs-breakpoint) {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+    }
+}
+
+// Team
+
+.team {
+    padding: 130px 0 100px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0 35px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0 20px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        @include negative-margin;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex-basis: 25%;
+        @include positive-padding;
+        margin-bottom: 30px;
+        text-align: center;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+            flex-basis: 100%;
+        }
+    }
+
+    &__column-img {
+        margin-bottom: 30px;
+
+        img {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    }
+
+    &__column-text {
+        margin-bottom: 15px;
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__social-item {
+        margin: 0 6px;
+    }
+}
+
+// Brands
+
+.brands {
+    padding: 145px 0;
+    background-color: $main-black;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 80px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 60px 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        @include negative-margin;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-wrap: wrap;
+            text-align: center;
+        }
+    }
+
+    &__column {
+        flex-basis: 16.6666666%;
+        @include positive-padding;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__img {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+// Pro
+
+.pro {
+    padding-top: 70px;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding-top: 50px;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding-top: 40px;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        @include negative-margin;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex-basis: 50%;
+        @include positive-padding;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            &:first-child {
+                margin-bottom: 30px;
+            }
+        }
+    }   
+    
+    &__column-first {
+        max-width: 470px;
+        width: 100%;
+        margin-left: auto;
+        padding-top: 60px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            max-width: 290px;
+            padding-top: 100px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            max-width: initial;
+            padding-top: 0;
+        }
+     }
+    
+    &__column-title {
+        margin-bottom: 23px;
+    }
+
+    &__column-text {
+        margin-bottom: 30px;
+        max-width: 470px;
+        width: 100%;
+    }
+
+    &__skills {
+        margin-bottom: 20px;
+    } 
+
+    &__skills-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    &__skills-progress-full {
+        width: 100%;
+        height: 15px;
+        background-color: $main-black;
+        position: relative;
+    }
+
+    &__skills-progress-part {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: $main-orange;
+
+        &--w-90 {
+            width: 90%;
+        }
+
+        &--w-95 {
+            width: 95%;
+        }
+
+        &--w-85 {
+            width: 85%;
+        }
+    }
+
+    &__social {
+        padding-top: 10px;
+    }
+
+    &__column-img {
+        img {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+// Numbers
+
+.numbers {
+    padding: 130px 0;
+    background: url("../img/number/number-bg.jpg") no-repeat top / cover fixed;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0;
+        background-attachment: scroll;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0
+    }
+
+    &__top {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        margin-bottom: 15px;
+    }
+
+    &__countdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and(max-width: $sm-breakpoint) {
+           display: none;
+        }
+    }
+
+    &__countdown-item {
+        flex-basis: 120px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__countdown-time,
+    &__countdown-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
+
+    &__countdown-time {
+        color: $main-orange;
+        font-size: 50px;
+    }
+
+    &__countdown-title {
+        color: #ffffff;
+        font-size: 22px;
+    }
+
+    &__countdown-title {
+        color: #ffffff;
+        font-size: 22px;
+    }
+
+    &__countdown-delimiter {
+        min-width: 70px;
+        font-size: 22px;
+        color: #ffffff;
+        text-align: center;
+    }
+}
+
+// Gallery
+
+.gallery {
+    padding: 130px 0 100px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0 35px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0 15px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        @include negative-margin;
+
+        @media screen and(max-width: $lg-breakpoint) {
+           padding: 0 15px;
+        }
+    }
+
+    &__item {
+        @include positive-padding;
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            flex-basis: 100%;
+        }
+    }
+
+    &__item-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(23,23,23,0.8);
+        opacity: 0;
+        transition: opacity .3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+            color: #fff;
+            font-size: 0px;
+            transition: font-size .3s;
+        }
+
+        &:hover::before {
+            font-size: 30px;
+        }
+    }
+
+    &__item:hover &__item-overlay {
+        opacity: 1;
+    }
+
+    &__item-img {
+        max-width: 100%;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            width: 100%;
+        }
+    }
+
+    &__item-link {
+        position: relative;
+        @media screen and(max-width: $lg-breakpoint) {
+            width: 100%;
+        }
+    }
+}
+
+// Solution 
+
+.solution {
+    padding: 130px 0 100px 0;
+    background: url("../img/price/price-bg.png") no-repeat top / cover fixed $main-orange;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0 35px 0;
+        background-attachment: scroll;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0 20px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        @include negative-margin;
+
+        @media screen and(max-width: $sm-breakpoint) {
+           flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex-basis: 33.333333%;
+        @include positive-padding;
+        text-align: center;
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+            margin-bottom: 25px;
+        }
+    }
+
+    &__column-inner {
+        border: 2px solid $main-black;
+        background-color: #fff;
+        transition: background-color .4s;
+
+        &:hover {
+            background-color: $main-orange;
+        }
+    }
+
+    &__column-info {
+        padding: 30px 15px;
+    }
+
+    &__column-title {
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: $main-black;
+        font-size: 45px;
+        line-height: 1.3;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            font-size: 28px;
+        }
+
+        @media screen and(max-width: $xs-breakpoint) {
+            font-size: 25px;
+            line-height: 1.4;
+        }
+    }
+}
+
+// Question
+
+.question {
+    padding: 130px 0 100px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0 35px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0 15px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__accordion {
+        max-width: 770px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    &__accordion-title {
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: #fff;
+        font-size: 22px;
+        line-height: 1.3;
+        padding: 14px 29px;
+        background-color: $main-black;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+    &__content-inner {
+        padding: 10px 37px 30px 37px;
+    }
+
+    &__accordion-line {
+        height: 1px;
+        background-color: $main-black;
+        margin: 15px 0;
+    }
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+// Job
+
+.job {
+    padding: 145px 0;
+    background: url("../img/job/job-bg.png") no-repeat top $main-black;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 80px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 60px 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        @include negative-margin;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex-basis: 50%;
+        @include positive-padding;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__column-img {
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__column-item {
+        &:not(:last-child) {
+            margin-bottom: 23px;
+        }
+        padding-right: 55px;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            padding-right: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            padding-right: 25px;
+        }
+    }
+
+    &__column-subtitle {
+        margin-bottom: 20px;
+    }
+}
+
+// Achievement 
+
+.achievement {
+    padding: 145px 0 115px 0;
+    background-color: $main-black;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 80px 0 50px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 60px 0 30px 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include negative-margin;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-direction: column;   
+        }
+    }
+
+    &__column {
+        flex-basis: 25%;
+        @include positive-padding;
+        text-align: center;
+        margin-bottom: 30px;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+        }
+    }
+}
+
+// Timeline 
+
+.timeline {
+    padding: 130px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__tab {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -5px;
+       
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        flex-basis: 100%;
+        padding: 0 5px;
+
+        @media screen and(max-width: $sm-breakpoint) {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__tablinks {
+        width: 100%;
+        font-size: 20px;
+        border-top: 5px solid transparent;
+        background-color: #fafafa;
+        padding: 10px 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: $main-black;
+        transition: border-color .3s;
+
+        &:hover {
+            border-color: $main-black;
+        }
+
+        &:focus {
+            background-color: $main-orange;
+            border-color: $main-black;
+            transition: background-color 1s;
+        }
+
+        @media screen and(max-width: $lg-breakpoint) {
+            font-size: 16px;
+        }
+    }
+
+    &__content {
+        padding: 20px 20px 0 20px;
+    }
+} 
+
+// Tabs
+.tab {
+    overflow: hidden;
+}
+
+
+.tabcontent {
+    display: none;
+}
+
+.tabcontent-first {
+    display: block;
+}
+
+
+
+.contact  {
+    padding: 130px 0;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 65px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 45px 0;
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        text-align: center;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            margin-bottom: 35px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include negative-margin;
+    }
+
+    &__column {
+        flex-basis: 50%;
+        @include positive-padding;
+    
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
+        }
+    }
+}
+
+// Form
+
+.form {
+    &__item {
+        margin-bottom: 30px;
+    }
+
+    &__field {
+        width: 100%;
+        border: 1px solid $main-gray;
+        padding: 13px 19px;
+        font-size: 14px;
+        line-height: 17px;
+        color: $main-gray;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+
+// Footer
+
+.footer {
+    padding: 115px 0;
+    background-color: $main-black;
+
+    @media screen and(max-width: $lg-breakpoint) {
+        padding: 95px 0;
+    }
+
+    @media screen and(max-width: $sm-breakpoint) {
+        padding: 85px 0;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include negative-margin;
+    }
+
+    &__column {
+        flex-basis: 33.333333%;
+        @include positive-padding;
+    
+        @media screen and(max-width: $sm-breakpoint) {
+            flex-basis: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__logo {
+        margin-bottom: 30px;
+    }
+
+    &__column-text {
+        color: #b4aeae;
+        max-width: 290px;
+        width: 100%;
+
+        @media screen and(max-width: $lg-breakpoint) {
+            max-width: 220px;
+        }
+
+        @media screen and(max-width: $sm-breakpoint) {
+            max-width: initial;
+        }
+    }
+
+    &__column-title {
+        margin-bottom: 30px;
+    }
+
+    &__column-item {
+        display: flex;
+        align-items: center;
+    }
+
+    &__column-icon {
+        &::before {
+            font-size: 12px;
+            color: $main-orange;
+            margin-right: 15px;
+        }
+    }
+
+    &__column-link,
+    &__column-adress {
+        color: #b4aeae;
+        font-size: 14px;
+        line-height: 2.3;
+    }
+
+    &__column-link {
+        transition: color .3s;
+
+        &:hover {
+            color: $main-orange;
+        }   
+    }
+
+    &__column-social {
+        display: flex;
+        margin-bottom: 15px;
+    }
+}
+
+
+/************* Modal on Header and Overview section ******************/ 
+
+.modal,
+.modal-two {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11,11,11,.8);
+    z-index: 2;
+    display: none;
+    padding: 0 15px;
+
+    &__form {
+        max-width: 600px;
+        width: 100%;
+        padding: 70px 50px;
+        background-color: #fff;
+        background: url("../img/price/price-bg.png") no-repeat center #fff;
+        text-align: center;
+        position: relative;
+
+        @media screen and (max-width: $lg-breakpoint) {
+            padding: 50px;
+        }
+
+        @media screen and (max-width: $sm-breakpoint) {
+            padding: 40px 15px;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: $main-black;
+        font-size: 36px;
+        line-height: 1.3;
+        margin-bottom: 23px;
+
+        @media screen and (max-width: $lg-breakpoint) {
+            font-size: 25px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 30px;
+    }
+
+    &__close,
+    &__close-two {
+        position: absolute;
+        top: -35px;
+        right: 0;
+        background-color: transparent;
+        color: rgba(255,255,255,.8);
+
+        &::before {
+            font-size: 15px;
+        }
+
+        &:hover:before {
+            color: #fff;
+        }
+    }
+
+    &-active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.modal-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11,11,11,.8);
+    z-index: 2;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-active {
+        display: none;
+    }
+
+    &__text {
+        max-width: 370px;
+        width: 100%;
+        margin: 0 auto 30px auto;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: $main-black;
+        font-size: 36px;
+        line-height: 1.3;
+        
+
+        @media screen and (max-width: $lg-breakpoint) {
+            font-size: 25px;
+        }
+    }
+
+    &__subtitle {
+        font-style: italic;
+        font-weight: 300;
+        margin-bottom: 15px;
+    }
+}
+
+/************* Back to top ******************/ 
+
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    background-color: $main-black;
+    padding: 15px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+
+    &:before {
+        color: #fff;
+        font-size: 26px;
+    }
+}
